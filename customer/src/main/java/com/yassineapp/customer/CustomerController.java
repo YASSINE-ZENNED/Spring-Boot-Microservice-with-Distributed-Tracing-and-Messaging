@@ -2,17 +2,21 @@ package com.yassineapp.customer;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/customers")
 
 public record CustomerController(  CustomerService customerService) {
-    @GetMapping
-    public void getCustomers() {
-
-
+    @GetMapping("/")
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        List<Customer> customers = customerService.findAll();
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
     @PostMapping
     public void registerNewCustomer(@RequestBody CustomerRegistrationRequest customerRequest) {

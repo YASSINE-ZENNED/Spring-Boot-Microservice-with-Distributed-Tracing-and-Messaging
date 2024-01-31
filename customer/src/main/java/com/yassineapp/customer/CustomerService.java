@@ -2,6 +2,8 @@ package com.yassineapp.customer;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public record CustomerService(CustomerRepository customerRepository) {
     public void registerNewCustomer(CustomerRegistrationRequest customerRequest) {
@@ -13,5 +15,9 @@ public record CustomerService(CustomerRepository customerRepository) {
 
 
         customerRepository.save(customer);
+    }
+
+    public List<Customer> findAll() {
+        return (List<Customer>) customerRepository.findAll();
     }
 }

@@ -14,4 +14,5 @@ public record CustomerRegistrationRequest(String firstname, String lastname, Str
     public String getLastname() {
         return lastname;
     }
+
 }
