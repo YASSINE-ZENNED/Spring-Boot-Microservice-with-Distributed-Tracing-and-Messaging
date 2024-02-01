@@ -1,6 +1,7 @@
 package com.yassineapp.customer;
 
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/customers")
+@AllArgsConstructor
 
-public record CustomerController(  CustomerService customerService) {
+public class CustomerController{
+
+    private final CustomerService customerService;
+
     @GetMapping("/")
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.findAll();

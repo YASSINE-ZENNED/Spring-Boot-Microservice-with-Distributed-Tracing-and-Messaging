@@ -1,6 +1,20 @@
 services:
-  postgres:
-    container_name: postgres
+  postgres-fraud:
+    container_name: postgres-fraud
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  postgres-customer:
+    container_name: postgres-customer
     image: postgres
     environment:
       POSTGRES_USER: root
