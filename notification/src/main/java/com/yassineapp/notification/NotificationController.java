@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 public class NotificationController {
     private final NotificationService notificationService;
 
+
+
     @GetMapping
     public String hello() {
         return "Hello from notification service";
