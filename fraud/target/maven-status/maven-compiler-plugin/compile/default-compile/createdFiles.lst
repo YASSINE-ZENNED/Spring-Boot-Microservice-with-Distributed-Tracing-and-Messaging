@@ -1,0 +1,6 @@
+com\yassineapp\fraud\FraudCheckHistory$FraudCheckHistoryBuilder.class
+com\yassineapp\fraud\FraudCheckHistoryRepository.class
+com\yassineapp\fraud\FraudController.class
+com\yassineapp\fraud\FraudApplication.class
+com\yassineapp\fraud\FraudCheckHistory.class
+com\yassineapp\fraud\FraudService.class

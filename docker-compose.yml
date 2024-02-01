@@ -1,4 +1,18 @@
 services:
+  postgres-notification:
+    container_name: postgres-notification
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+       - "5434:5432"
+    networks:
+        - postgres
+    restart: unless-stopped
   postgres-fraud:
     container_name: postgres-fraud
     image: postgres

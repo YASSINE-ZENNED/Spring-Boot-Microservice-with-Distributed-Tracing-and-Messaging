@@ -1,0 +1,4 @@
+com\yassineapp\clients\fraud\FraudClient.class
+com\yassineapp\clients\notification\NotificationInterface.class
+com\yassineapp\clients\fraud\FraudCheckResponse.class
+com\yassineapp\clients\notification\NotificationResponse.class

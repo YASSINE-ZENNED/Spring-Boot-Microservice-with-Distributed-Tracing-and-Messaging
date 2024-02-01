@@ -1,5 +1,6 @@
 package com.yassineapp.fraud;
 
+import com.yassineapp.clients.fraud.FraudCheckResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ public class FraudController {
     @GetMapping("/{customerId}")
     public FraudCheckResponse fraudCheck(@PathVariable("customerId") Integer customerId) {
         boolean fraud = fraudService.isFraud(customerId);
+        log.info("Fraud check for customer {} : {}", customerId, fraud);
         return new FraudCheckResponse(fraud);
     }
 }
