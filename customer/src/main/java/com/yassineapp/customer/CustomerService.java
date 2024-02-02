@@ -26,9 +26,13 @@ public class CustomerService {
 
 
         FraudCheckResponse fraudCheckResponse =   fraudClient.fraudCheck(customer.getId());
-       if(!fraudCheckResponse.isFraudster()){
-           NotificationResponse notificationResponse = notificationInterface.notify(customer.getId());
 
+       if(fraudCheckResponse.isFraudster()){
+                throw new RuntimeException("Fraudster detected");
+       }else {
+          notificationInterface.notify(new NotificationResponse(customer.getId(), customer.getEmail(), String.format("Hello %s, welcome to our platform", customer.getFirstname()))
+
+           );
        }
     }
 

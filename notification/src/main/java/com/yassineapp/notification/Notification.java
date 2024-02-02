@@ -1,9 +1,6 @@
 package com.yassineapp.notification;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +11,28 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Notification {
 
 
     @Id
     @GeneratedValue
-    private Integer id;
-    private Integer customerId;
+    private Integer notificationId;
+    private Integer toCustomerId;
+    private String toCustomerEmail;
+    private String sender;
+    private String message;
+    private LocalDateTime sentAt;
+
     public void setId(Integer id) {
-        this.id = id;
+        this.notificationId = id;
     }
 
     public Integer getId() {
-        return id;
+        return notificationId;
     }
 
-    private String message;
-    private LocalDateTime createAt;
+
 }

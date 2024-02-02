@@ -16,6 +16,6 @@ spring:
         format_sql: true
     show-sql: true
 eureka:
-    client:
-        server-url:
-        defaultZone: http://localhost:8761/eureka/
+  client:
+    server-url:
+      defaultZone: http://localhost:8761/eureka/

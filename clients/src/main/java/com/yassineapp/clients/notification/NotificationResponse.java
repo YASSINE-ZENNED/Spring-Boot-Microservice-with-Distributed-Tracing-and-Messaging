@@ -1,6 +1,6 @@
 package com.yassineapp.clients.notification;
 
-public record NotificationResponse(String message) {
+public record NotificationResponse(Integer toCustomerId, String toCustomerEmail, String message) {
 
 
 
