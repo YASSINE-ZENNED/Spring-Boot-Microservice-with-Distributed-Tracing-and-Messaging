@@ -18,10 +18,14 @@ public class Notificationapplication {
 
     }
 
-    @Bean
-    CommandLineRunner commandLineRunner(RabbitMQMessageProducer producer, NotificationConfig notificationConfig) {
-        return args -> {
-          producer.publish("foo", notificationConfig.getInternalExchange(), notificationConfig.getNotificationRoutingKey());
-        };
-    }
+//    @Bean
+//    CommandLineRunner commandLineRunner(RabbitMQMessageProducer producer, NotificationConfig notificationConfig) {
+//        return args -> {
+//          producer.publish(new Person("yassine","zenned"), notificationConfig.getInternalExchange(), notificationConfig.getNotificationRoutingKey());
+//        };
+//    }
+//
+//    record Person(String firstName, String lastName) {
+//    }
+
 }
