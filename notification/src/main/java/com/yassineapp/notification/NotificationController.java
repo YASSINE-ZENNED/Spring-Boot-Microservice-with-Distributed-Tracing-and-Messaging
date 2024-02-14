@@ -23,8 +23,9 @@ public class NotificationController {
     @PostMapping
 public void sendNotification(@RequestBody  NotificationResponse  NotificationResponse) {
             log.info("Sending notification to customer {}", NotificationResponse);
-            notificationService.sendNotification(NotificationResponse);
+    notificationService.sendNotification(NotificationResponse);
 
     }
 
 }
+

@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: root
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+       - postgres3:/data/postgres
     ports:
        - "5434:5432"
     networks:
@@ -21,7 +21,7 @@ services:
       POSTGRES_PASSWORD: root
       PGDATA: /data/postgres
     volumes:
-      - postgres:/data/postgres
+      - postgres2:/data/postgres
     ports:
       - "5433:5432"
     networks:
@@ -35,7 +35,7 @@ services:
       POSTGRES_PASSWORD: root
       PGDATA: /data/postgres
     volumes:
-      - postgres:/data/postgres
+      - postgres1:/data/postgres
     ports:
       - "5432:5432"
     networks:
@@ -57,7 +57,10 @@ services:
     restart: unless-stopped
   zipkin:
     image: openzipkin/zipkin
+    networks:
+      - spring
     container_name: zipkin
+
     ports:
       - "9411:9411"
   rabbitmq:
@@ -66,11 +69,38 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  eureka-server:
+    image: yassinezenned/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  api-gateway:
+    image: yassinezenned/apigateway:latest
+    container_name: api-gateway
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
 networks:
   postgres:
+    driver: bridge
+  spring:
     driver: bridge
 
 
 volumes:
-  postgres:
+  postgres1:
+  postgres2:
+  postgres3:
   pgadmin:
