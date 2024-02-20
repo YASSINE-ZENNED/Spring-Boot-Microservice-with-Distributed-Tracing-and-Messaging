@@ -5,11 +5,8 @@ metadata:
   labels:
     app: postgres
 spec:
-  serviceName: "postgres"
+  serviceName: postgres
   replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
   template:
     metadata:
       name: postgres
@@ -17,24 +14,27 @@ spec:
         app: postgres
     spec:
       volumes:
-          - name: postgres-pv
-            persistentVolumeClaim:
-              claimName: postgres-pc-volume-claim
+        - name: postgres
+          persistentVolumeClaim:
+            claimName: postgres-pv-volume-claim
       containers:
         - name: postgres
           image: postgres
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data"
-              name:  postgres
+              name: postgres
           envFrom:
             - configMapRef:
-                name: postgrs-config
+                name: postgres-config
           resources:
             requests:
-              memory: "1000Mi"
-              cpu: "1000m"
+              cpu: 100m
+              memory: 256Mi
             limits:
-              memory: "1000Mi"
-              cpu: "1000m"
+              cpu: 500m
+              memory: 512Mi
       restartPolicy: Always
+  selector:
+    matchLabels:
+      app: postgres
