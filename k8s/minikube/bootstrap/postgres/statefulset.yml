@@ -16,10 +16,10 @@ spec:
       volumes:
         - name: postgres
           persistentVolumeClaim:
-            claimName: postgres-pv-volume-claim1
+            claimName: postgres-pc-volume-claim
       containers:
         - name: postgres
-          image: postgres
+          image: postgres:10.1-alpine
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data"

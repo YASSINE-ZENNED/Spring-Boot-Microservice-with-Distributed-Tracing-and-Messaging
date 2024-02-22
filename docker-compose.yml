@@ -10,7 +10,7 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
+#      - eureka-server
       - zipkin
       - rabbitmq
       - postgres-customer
@@ -25,7 +25,7 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
+#      - eureka-server
       - zipkin
       - rabbitmq
       - postgres-fraud
@@ -40,7 +40,7 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
+#      - eureka-server
       - zipkin
       - rabbitmq
       - postgres-notification
@@ -117,29 +117,43 @@ services:
       - "15672:15672"
     networks:
       - spring
-  eureka-server:
-    image: yassinezenned/eureka-server:latest
-    container_name: eureka-server
-    ports:
-      - "8761:8761"
+#  eureka-server:
+#    image: yassinezenned/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#  api-gateway:
+#    image: yassinezenned/apigateway:latest
+#    container_name: api-gateway
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
+  postgres:
+    container_name: postgres
+    image: postgres
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-  api-gateway:
-    image: yassinezenned/apigateway:latest
-    container_name: api-gateway
+      POSTGRES_USER: yassine
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
     ports:
-      - "8083:8083"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - "5432:5432"
     networks:
-      - spring
-    depends_on:
-      - zipkin
-      - eureka-server
+      - postgres
+    restart: unless-stopped
 networks:
   postgres:
     driver: bridge
@@ -148,6 +162,7 @@ networks:
 
 
 volumes:
+  postgres:
   postgres1:
   postgres2:
   postgres3:

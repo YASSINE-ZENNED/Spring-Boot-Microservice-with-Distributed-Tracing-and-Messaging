@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: postgres-pv-volume1
+  name: postgres-pc-volume
   labels:
     type: local
     app: postgres
@@ -12,12 +12,12 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /mnt/data
+    path: /mnt/data2
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-pv-volume-claim1
+  name: postgres-pc-volume-claim
   labels:
     app: postgres
 spec:
