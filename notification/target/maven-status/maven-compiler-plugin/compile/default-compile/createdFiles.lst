@@ -1,7 +1,7 @@
-com\yassineapp\notification\Notification.class
 com\yassineapp\notification\NotificationConfig.class
-com\yassineapp\notification\Notification$NotificationBuilder.class
 com\yassineapp\notification\Notificationapplication.class
+com\yassineapp\notification\Notification.class
+com\yassineapp\notification\Notification$NotificationBuilder.class
 com\yassineapp\notification\NotificationService.class
 com\yassineapp\notification\rabbitMQ\NotificationConsumer.class
 com\yassineapp\notification\NotificationController.class

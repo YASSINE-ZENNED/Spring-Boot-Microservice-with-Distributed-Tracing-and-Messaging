@@ -2,14 +2,14 @@ server:
   port: 8082
 spring:
   application:
-    name: NOTIFICATION
+    name: notification
   datasource:
     password: root
     url: jdbc:postgresql://postgres:5432/notification
     username: root
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -26,6 +26,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     enabled: false
+
 rabbitmq:
   exchanges:
     internal: internal.exchange

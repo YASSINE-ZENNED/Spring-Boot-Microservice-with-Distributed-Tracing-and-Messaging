@@ -11,7 +11,6 @@ import org.springframework.context.annotation.PropertySources;
         scanBasePackages = {"com.yassineapp.customer", "com.yassineapp.amqp"}
 )
 @PropertySources({
-
         @PropertySource("classpath:clients-${spring.profiles.active}.properties")
 })
 @EnableEurekaClient

@@ -1,8 +1,8 @@
 com\yassineapp\customer\CustomerConfig.class
-com\yassineapp\customer\CustomerService.class
 com\yassineapp\customer\CustomerApplication.class
 com\yassineapp\customer\Customer.class
-com\yassineapp\customer\Customer$CustomerBuilder.class
-com\yassineapp\customer\CustomerRegistrationRequest.class
 com\yassineapp\customer\CustomerRepository.class
 com\yassineapp\customer\CustomerController.class
+com\yassineapp\customer\CustomerService.class
+com\yassineapp\customer\Customer$CustomerBuilder.class
+com\yassineapp\customer\CustomerRegistrationRequest.class
