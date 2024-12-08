@@ -3,7 +3,7 @@ This project demonstrates a Spring Boot microservice architecture utilizing vari
 
 
 # Microservices
-![Screenshot 2021-11-30 at 12 32 51](https://user-images.githubusercontent.com/40702606/144061535-7a42e85b-59d6-4f7f-9c35-18a48b49e6de.png)
+![logo](https://github.com/YASSINE-ZENNED/Spring-Boot-Microservice-with-Distributed-Tracing-and-Messaging/assets/52501790/4e33b664-e65f-44f3-9ae6-f0be3bde1552)
 
 # kubernetes
 
