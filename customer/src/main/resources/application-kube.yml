@@ -26,3 +26,14 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    enabled: true
+  endpoint:
+    prometheus:
+      enabled: true
